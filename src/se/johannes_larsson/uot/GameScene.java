@@ -68,10 +68,10 @@ public class GameScene extends Scene {
 	
 	public void draw(Game g) {
 		g.stroke(0);
-		for (int x = 0; x <= g.width; x += g.GRIDSIZE) {
+		for (int x = 0; x <= g.width; x += Game.GRIDSIZE) {
 			g.line(x, 0, x, g.height);
 		}
-		for (int y = 0; y <= g.width; y += g.GRIDSIZE) {
+		for (int y = 0; y <= g.width; y += Game.GRIDSIZE) {
 			g.line(0, y, g.width, y);
 		}
 		

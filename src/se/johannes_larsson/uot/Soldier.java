@@ -37,7 +37,7 @@ public class Soldier extends GameObject {
 	}
 	
 	public void draw(Game g) {
-		position.set(x, y).add(0.5f, 0.5f).mult(g.GRIDSIZE);
+		position.set(x, y).add(0.5f, 0.5f).mult(Game.GRIDSIZE);
 		super.draw(g);
 	}
 }

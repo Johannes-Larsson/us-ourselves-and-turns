@@ -19,7 +19,7 @@ public class Player {
 	 * @param turn 
 	 * which turn the game is on
 	 * @return 
-	 * the next soldier to recieve a move, or null if all have moved
+	 * the next soldier to receive a move, or null if all have moved
 	 */
 	public Soldier getSoldiersTurn(int turn) {
 		for (int i = 0; i < soldiers.size(); i++) {

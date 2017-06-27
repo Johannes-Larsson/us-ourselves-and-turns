@@ -12,16 +12,20 @@ public abstract class Scene {
 	}
 	
 	/**
-	 * called when this scene is switched to
+	 * called when this scene is switched to (including the start)
+	 * @param g
+	 * the game
 	 */
-	public void onResume() {
+	public void onResume(Game g) {
 		
 	}
 	
 	/**
 	 * called when this scene is switched from
+	 * @param g
+	 * the game
 	 */
-	public void onLeave() {
+	public void onLeave(Game g) {
 		
 	}
 	

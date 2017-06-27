@@ -17,13 +17,13 @@ public class Game extends PApplet {
 	}
 	
 	public void settings() {
-		size(30 * 20 + 1, 30 * 15 + 1);
+		size(GRIDSIZE * 20 + 1, GRIDSIZE * 15 + 1);
 		backgroundColor = 0xfff0f0ff;
 	}
 	
 	public void setup() {
 		scene = new GameScene();
-		scene.onResume();
+		scene.onResume(this);
 	}
 	
 	private boolean[] keys = new boolean[128];
@@ -47,9 +47,9 @@ public class Game extends PApplet {
 	 * the new scene
 	 */
 	public void setScene(Scene scene) {
-		this.scene.onLeave();
+		this.scene.onLeave(this);
 		this.scene = scene;
-		this.scene.onResume();
+		this.scene.onResume(this);
 	}
 	
 	public Scene getScene() {

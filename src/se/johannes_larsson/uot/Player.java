@@ -11,6 +11,8 @@ public class Player {
 	/** where the players spawn is */
 	private int spawnX, spawnY;
 	
+	private String name;
+	
 	/** all soldiers belonging to this player */
 	private ArrayList<Soldier> soldiers;
 	
@@ -28,8 +30,9 @@ public class Player {
 		return null;
 	}
 
-	public Player(int color, int spawnX, int spawnY, GameScene scene) {
+	public Player(String name, int color, int spawnX, int spawnY, GameScene scene) {
 		this.color = color;
+		this.name = name;
 		this.spawnX = spawnX;
 		this.spawnY = spawnY;
 		this.scene = scene;
@@ -61,5 +64,24 @@ public class Player {
 	 */
 	public void nextTurn(int turn) {
 		scene.addObject(new Soldier(spawnX, spawnY, this, scene));
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * 
+	 * @param soldier
+	 * @return whether it's this soldiers turn to move
+	 * 
+	 */
+	public boolean isSoldiersTurn(Soldier soldier, int move) {
+		return getSoldiersTurn(move) == soldier && scene.getPlayersTurn() == this;
+	}
+	
+	public void drawNumSoldiers(Game g, int x, int y) {
+		g.fill(color);
+		g.text(name + ": " + soldiers.size() + " soldiers", x, y);
 	}
 }

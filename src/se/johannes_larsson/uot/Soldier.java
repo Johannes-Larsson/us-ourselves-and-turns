@@ -33,11 +33,14 @@ public class Soldier extends GameObject {
 	}
 	
 	public boolean hasMove(int turn) {
-		return moves.size() >= turn;
+		return moves.size() > turn;
 	}
 	
 	public void draw(Game g) {
 		position.set(x, y).add(0.5f, 0.5f).mult(Game.GRIDSIZE);
+		if (player.isSoldiersTurn(this, ((GameScene)getScene()).getMove())) {
+			g.ellipse(position.x, position.y, Game.GRIDSIZE * 1.5f, Game.GRIDSIZE * 1.5f);
+		}
 		super.draw(g);
 	}
 }

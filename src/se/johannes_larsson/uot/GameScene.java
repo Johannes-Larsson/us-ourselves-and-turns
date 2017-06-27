@@ -17,13 +17,13 @@ public class GameScene extends Scene {
 		super();
 		
 		players = new Player[] {
-				new Player(0xffff0000, 1, 1, this),
-				new Player(0xff0000ff, 18, 13, this)
+				new Player("red", 0xffff0000, 1, 1, this),
+				new Player("blue", 0xff0000ff, 18, 13, this)
 		};
 	}
 	
 	public void onResume(Game g) {
-		g.backgroundColor = 0xff666677;
+		g.backgroundColor = 0xff333344;
 	}
 	
 	public void update(Game g) {
@@ -75,9 +75,25 @@ public class GameScene extends Scene {
 			g.line(0, y, g.width, y);
 		}
 		
+		int x = g.mouseX / Game.GRIDSIZE;
+		int y = g.mouseY / Game.GRIDSIZE; 
+		g.fill(255);
+		g.rect(x * Game.GRIDSIZE, y * Game.GRIDSIZE, Game.GRIDSIZE, Game.GRIDSIZE);
+		
+		
 		super.draw(g);
 		
+		for (int i = 0; i < players.length; i++) {
+			players[i].drawNumSoldiers(g, g.width - 100, 100 + i * 15);
+		}
+		
 		g.fill(255);
-		g.text("turn " + turn + "\nround " + round, 10, 10);
+		g.text("turn " + turn + "\nround " + round + "\nmove " + move, 10, 10);
+		g.fill(getPlayersTurn().getColor());
+		g.text("player " + getPlayersTurn().getName() + "s turn", 100, 10);
+	}
+
+	public int getMove() {
+		return move;
 	}
 }

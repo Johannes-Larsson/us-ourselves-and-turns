@@ -75,10 +75,12 @@ public class GameScene extends Scene {
 			g.line(0, y, g.width, y);
 		}
 		
-		int x = g.mouseX / Game.GRIDSIZE;
-		int y = g.mouseY / Game.GRIDSIZE; 
-		g.fill(255);
-		g.rect(x * Game.GRIDSIZE, y * Game.GRIDSIZE, Game.GRIDSIZE, Game.GRIDSIZE);
+		Soldier toMove = getPlayersTurn().getSoldiersTurn(turn);
+		if (toMove != null) {
+			int x = g.mouseX / Game.GRIDSIZE;
+			int y = g.mouseY / Game.GRIDSIZE; 
+			toMove.drawMove(g, x, y);
+		}
 		
 		
 		super.draw(g);

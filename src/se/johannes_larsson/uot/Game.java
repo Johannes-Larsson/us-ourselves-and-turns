@@ -36,6 +36,11 @@ public class Game extends PApplet {
 		keys[key] = false;
 	}
 	
+	/**
+	 * 
+	 * @param key
+	 * @return whether the key is pressed
+	 */
 	public boolean keyPressed(char key) {
 		return keys[key];
 	}
